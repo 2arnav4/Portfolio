@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+//RE-WRITE THIS CODE 
+
+import React from 'react';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="min-h-screen bg-gray-900">
+      <Navbar />
+      
+      {/* Temporary content to test scrolling */}
+      <div className="pt-16"> {/* Add top padding to account for fixed navbar */}
+        <section id="home" className="min-h-screen flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-6xl font-bold text-white mb-4">Welcome</h1>
+            <p className="text-xl text-gray-300">Your Portfolio</p>
+          </div>
+        </section>
+
+        <section id="about" className="min-h-screen flex items-center justify-center bg-gray-800">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold text-white mb-4">About</h2>
+            <p className="text-gray-300">About section content will go here</p>
+          </div>
+        </section>
+
+        <section id="resume" className="min-h-screen flex items-center justify-center bg-gray-900">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold text-white mb-4">Resume</h2>
+            <p className="text-gray-300">Resume section content will go here</p>
+          </div>
+        </section>
+
+        <section id="projects" className="min-h-screen flex items-center justify-center bg-gray-800">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold text-white mb-4">Projects</h2>
+            <p className="text-gray-300">Projects section content will go here</p>
+          </div>
+        </section>
+
+        <section id="contact" className="min-h-screen flex items-center justify-center bg-gray-900">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold text-white mb-4">Contact</h2>
+            <p className="text-gray-300">Contact section content will go here</p>
+          </div>
+        </section>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
