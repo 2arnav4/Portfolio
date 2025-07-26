@@ -1,20 +1,17 @@
+//RE-WRITE THIS CODE
 
-//RE-WRITE THIS CODE 
-
-import React from 'react';
-import Navbar from './components/Navbar/Navbar';
+import React from "react";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <div className="min-h-screen bg-gray-900">
       <Navbar />
-      
-      {/* Temporary content to test scrolling */}
       <div className="pt-16"> {/* Add top padding to account for fixed navbar */}
         <section id="home" className="min-h-screen flex items-center justify-center">
           <div className="text-center">
             <h1 className="text-6xl font-bold text-white mb-4">Welcome</h1>
-            <p className="text-xl text-gray-300">Your Portfolio</p>
+            <p className="text-gray-300">This is the home section of the portfolio</p>
           </div>
         </section>
 
