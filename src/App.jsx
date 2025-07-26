@@ -1,7 +1,8 @@
-//RE-WRITE THIS CODE
-
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
+import { useEffect } from "react";
+import { useRef } from "react";
+import "./App.css";
 
 function App() {
   return (
