@@ -53,13 +53,13 @@ const Skills = () => {
   return (
     <motion.section 
       id="skills" 
-      className="min-h-screen flex items-center justify-center bg-gray-900 px-6"
+      className="min-h-screen flex items-center justify-center bg-black px-6 py-4"
       style={{ opacity, y, scale }}
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 mb-4">
+        <div className="text-center mb-8">
+          <h2 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-500 to-indigo-600 mb-4">
             TECH ARSENAL
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
@@ -68,7 +68,7 @@ const Skills = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className="space-y-12">
+        <div className="space-y-8">
           {skillCategories.map((category, categoryIndex) => (
             <div key={categoryIndex} className="relative">
               {/* Category Title */}

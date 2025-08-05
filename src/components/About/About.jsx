@@ -14,7 +14,7 @@ const About = () => {
   return (
     <motion.section 
       id="about" 
-      className="min-h-screen flex items-center justify-center bg-[#0F172A] px-6 text-white"
+      className="min-h-screen flex items-center justify-center bg-black px-6 text-white"
       style={{ opacity, y, scale }}
     >
       <div className="text-center max-w-2xl">
@@ -24,11 +24,11 @@ const About = () => {
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-          <span className="bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">Crafting</span>
+          <span className="bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-600 bg-clip-text text-transparent">Crafting</span>
           <br />
-          <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent"> Digital</span>
+          <span className="bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-600 bg-clip-text text-transparent"> Digital</span>
           <br />
-          <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-blue-400 bg-clip-text text-transparent">Experiences</span>
+          <span className="bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-600 bg-clip-text text-transparent">Experiences</span>
         </h1>
 
         <p className="text-lg text-gray-300 mb-8">

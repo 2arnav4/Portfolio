@@ -4,19 +4,20 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 const Achievement = () => {
   const { scrollYProgress } = useScroll();
   
-  const opacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
-  const y = useTransform(scrollYProgress, [0.2, 0.4], [100, 0]);
-  const scale = useTransform(scrollYProgress, [0.2, 0.4], [0.8, 1]);
+  // Transform scroll progress to opacity and position (like About and Skills)
+  const opacity = useTransform(scrollYProgress, [0.5, 0.7], [0, 1]);
+  const y = useTransform(scrollYProgress, [0.5, 0.7], [100, 0]);
+  const scale = useTransform(scrollYProgress, [0.5, 0.7], [0.8, 1]);
 
   return (
     <motion.section 
       id="achievement" 
-      className="min-h-screen flex items-center justify-center bg-gray-900"
+      className="min-h-screen flex items-center justify-center bg-black px-6 py-4"
       style={{ opacity, y, scale }}
     >
       <div className="text-center max-w-4xl mx-auto px-6">
         <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
-          <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-600 bg-clip-text text-transparent">
             Achievements
           </span>
         </h2>
