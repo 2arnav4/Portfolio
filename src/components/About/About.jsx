@@ -1,23 +1,21 @@
-// File: About.jsx
-
 import React from "react";
 import { motion, useScroll, useTransform } from 'framer-motion';
-import resumePdf from '/src/assets/resume/Resume -Arnav .pdf'; // Import the resume file
+import resumePdf from '/src/assets/resume/Resume -Arnav .pdf';
 
 const About = () => {
   const { scrollYProgress } = useScroll();
   
-  // Transform scroll progress to opacity. Fades out as you scroll down.
+  // Stays visible at the top and fades out as you scroll down.
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9]); // Adds a subtle shrink effect
+  const y = useTransform(scrollYProgress, [0, 0.2], [0, -50]);
 
   return (
     <motion.section 
       id="about" 
       className="min-h-screen flex items-center justify-center bg-black px-6 text-white py-4"
-      style={{ opacity, scale }}
+      style={{ opacity, y }}
     >
-      <div className="text-center max-w-4xl">
+      <div className="text-center max-w-7xl mx-auto">
         <div className="inline-flex items-center mb-6 px-4 py-1 border border-green-500 rounded-full">
           <span className="h-2 w-2 bg-green-500 rounded-full mr-2"></span>
           Available for Collaborations & Internships
@@ -31,7 +29,7 @@ const About = () => {
           <span className="bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-600 bg-clip-text text-transparent">Experiences</span>
         </h1>
 
-        <p className="text-lg text-gray-300 mb-8">
+        <p className="text-lg text-gray-300 mb-8 max-w-4xl mx-auto">
           Hi, I'm <span className="text-blue-400 font-semibold">Arnav Singla</span>, a full-stack developer 
           passionate about creating intuitive web solutions. I transform ideas into functional products, 
           bringing design and code together seamlessly.
@@ -45,7 +43,7 @@ const About = () => {
             🔍 Explore Projects
           </a>
           <a
-            href={resumePdf} // Use the imported PDF path
+            href={resumePdf}
             download="Resume - Arnav Singla.pdf"
             className="px-6 py-3 border-2 border-gray-600 text-gray-300 font-semibold rounded-md hover:border-blue-400 hover:text-blue-400 transition-all duration-300 flex items-center gap-2"
           >

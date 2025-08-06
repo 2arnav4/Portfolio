@@ -3,19 +3,11 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Contact = () => {
   const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0.75, 0.95], [0, 1]);
+  const y = useTransform(scrollYProgress, [0.75, 0.95], [50, 0]);
 
-  // Fades in as the user scrolls into this section's view
-  const opacity = useTransform(scrollYProgress, [0.7, 0.9], [0, 1]);
-  const y = useTransform(scrollYProgress, [0.7, 0.9], [50, 0]); // Slides up slightly
-
-  const handleEmailClick = () => {
-    window.location.href = 'mailto:singlaarnav2405@gmail.com?subject=Hello from my portfolio!&body=Hi Arnav,%0D%0A%0D%0AI came across your portfolio and would like to connect with you.%0D%0A%0D%0ABest regards,';
-  };
-
-  const handleDoubleClickEmail = (e) => {
-    e.stopPropagation(); // Prevent triggering the email compose
+  const handleCopyEmail = () => {
     navigator.clipboard.writeText('singlaarnav2405@gmail.com').then(() => {
-      // You can add a toast notification here for better user feedback
       alert('Email copied to clipboard!');
     });
   };
@@ -23,75 +15,78 @@ const Contact = () => {
   const contactLinks = [
     {
       icon: (
-        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          className="w-8 h-8 text-blue-500"
+        >
+          <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 24h4V8h-4v16zm7.5 0h4v-8.4c0-2 .4-4 3-4s2.6 2.2 2.6 4.1V24h4v-8.6C22.6 9.6 20 8 17.8 8c-2.4 0-3.7 1.3-4.3 2.2V8h-4v16z" />
         </svg>
       ),
       title: "LinkedIn",
-      link: "https://www.linkedin.com/in/arnav-singla-5683432a3/",
-      handle: "arnav-singla-5683432a3",
-      hoverColor: "hover:border-blue-400"
+      link: "https://www.linkedin.com/in/arnav-singla-5683432a3",
+      hoverColor: "hover:border-blue-400",
     },
     {
       icon: (
-        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          className="w-8 h-8 text-white"
+        >
+          <path d="M12 0C5.37 0 0 5.38 0 12a12 12 0 0 0 8.21 11.44c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.32-1.74-1.32-1.74-1.08-.74.08-.72.08-.72 1.2.09 1.83 1.23 1.83 1.23 1.06 1.82 2.8 1.3 3.48.99.11-.77.41-1.3.75-1.6-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.4 11.4 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.47 5.92.42.36.8 1.1.8 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 24 12c0-6.62-5.38-12-12-12z" />
         </svg>
       ),
       title: "GitHub",
       link: "https://github.com/2arnav4",
-      handle: "2arnav4",
-      hoverColor: "hover:border-gray-400"
+      hoverColor: "hover:border-gray-400",
     },
     {
       icon: (
-        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          className="w-8 h-8 text-sky-400"
+        >
+          <path d="M23.95 4.57a10 10 0 0 1-2.83.78 4.92 4.92 0 0 0 2.16-2.7 10.14 10.14 0 0 1-3.13 1.2 4.92 4.92 0 0 0-8.38 4.49 13.97 13.97 0 0 1-10.15-5.15 4.92 4.92 0 0 0 1.52 6.57A4.9 4.9 0 0 1 .96 9v.06a4.93 4.93 0 0 0 3.95 4.82 4.93 4.93 0 0 1-2.21.08 4.93 4.93 0 0 0 4.6 3.41A9.86 9.86 0 0 1 0 19.54 13.94 13.94 0 0 0 7.55 21.5c9.14 0 14.14-7.72 13.82-14.64a9.88 9.88 0 0 0 2.42-2.53z" />
         </svg>
       ),
       title: "Twitter",
-      link: "https://x.com/arnav_singla24",
-      handle: "@arnav_singla24",
-      hoverColor: "hover:border-sky-400"
-    }
+      link: "https://twitter.com/arnav_singla24",
+      hoverColor: "hover:border-sky-400",
+    },
   ];
 
   return (
-    <motion.section 
-      id="contact" 
+    <motion.section
+      id="contact"
       className="min-h-screen flex items-center justify-center bg-black px-6 text-white py-4"
       style={{ opacity, y }}
     >
-      <div className="max-w-4xl w-full mx-auto">
-        <div className="text-center">
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            <span className="bg-gradient-to-r from-violet-400 via-purple-500 to-indigo-600 bg-clip-text text-transparent">
-              Let's Connect
-            </span>
-          </h2>
-          <p className="text-gray-300 text-lg mb-12 max-w-2xl mx-auto">
-            Ready to collaborate? Reach out via email or find me on other platforms.
-          </p>
-        </div>
-        
-        <div className="flex flex-col items-center gap-6 w-full max-w-md mx-auto">
-          {/* Email Card */}
-          <div
-            className="group relative bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-5 w-full cursor-pointer hover:border-blue-500 hover:bg-gray-700/70 transition-all duration-300"
-            title="Double-click to copy email"
-            onDoubleClick={handleDoubleClickEmail}
-            onClick={handleEmailClick}
-          >
-            <div className="flex items-center gap-5">
-              <span className="text-4xl text-blue-400">📧</span>
-              <div>
-                <h3 className="text-xl font-semibold text-white">Email</h3>
-                <p className="text-gray-300 select-all">singlaarnav2405@gmail.com</p>
-              </div>
-            </div>
-          </div>
+      <div className="max-w-7xl mx-auto w-full text-center">
+        <h2 className="text-5xl md:text-7xl font-bold text-white mb-4">
+          <span className="bg-gradient-to-r from-violet-400 via-purple-500 to-indigo-600 bg-clip-text text-transparent">
+            Let's Connect
+          </span>
+        </h2>
 
-          {/* Social Links */}
+        {/* Email shown as a clickable link */}
+        <p
+          onClick={handleCopyEmail}
+          title="Click to copy email"
+          className="text-lg text-blue-400 mb-8 cursor-pointer hover:underline"
+        >
+          singlaarnav2405@gmail.com
+        </p>
+
+        <p className="text-lg text-gray-300 mb-12 max-w-3xl mx-auto">
+          Ready to collaborate? Find me on other platforms.
+        </p>
+
+        <div className="flex flex-col items-center gap-6 w-full max-w-md mx-auto">
           {contactLinks.map((contact, index) => (
             <a
               key={index}
@@ -101,17 +96,21 @@ const Contact = () => {
               className={`group relative bg-gray-800/50 backdrop-blur-sm p-4 rounded-xl border border-gray-700 ${contact.hoverColor} w-full transition-all duration-300 transform hover:scale-105 hover:bg-gray-700/70`}
             >
               <div className="flex items-center gap-5">
-                <div className="text-gray-300 group-hover:text-white transition-colors duration-300">
+                <div className="group-hover:text-white transition-colors duration-300">
                   {contact.icon}
                 </div>
-                <div>
+                <div className="text-left">
                   <h3 className="text-xl font-semibold text-white">{contact.title}</h3>
-                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">{contact.handle}</p>
                 </div>
               </div>
             </a>
           ))}
         </div>
+
+        {/* Made with love footer */}
+        <p className="mt-32 text-sm text-gray-500">
+          Made with <span className="text-red-500">❤️</span> by Arnav
+        </p>
       </div>
     </motion.section>
   );
