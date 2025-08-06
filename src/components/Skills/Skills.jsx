@@ -13,10 +13,9 @@ import mongodbIcon from '../../assets/icons/mongodb.png';
 const Skills = () => {
   const { scrollYProgress } = useScroll();
   
-  // Different scroll ranges for each section
-  const opacity = useTransform(scrollYProgress, [0.1, 0.3], [0, 1]);
-  const y = useTransform(scrollYProgress, [0.1, 0.3], [100, 0]);
-  const scale = useTransform(scrollYProgress, [0.1, 0.3], [0.8, 1]);
+  // Fades in as the user scrolls into this section's view
+  const opacity = useTransform(scrollYProgress, [0.15, 0.35], [0, 1]);
+  const y = useTransform(scrollYProgress, [0.15, 0.35], [50, 0]); // Slides up slightly
 
   const skillCategories = [
     {
@@ -53,10 +52,10 @@ const Skills = () => {
   return (
     <motion.section 
       id="skills" 
-      className="min-h-screen flex items-center justify-center bg-black px-6 py-4"
-      style={{ opacity, y, scale }}
+      className="min-h-screen flex items-center justify-center bg-black px-6 text-white py-4"
+      style={{ opacity, y }}
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
           <h2 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-500 to-indigo-600 mb-4">

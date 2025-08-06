@@ -11,7 +11,7 @@ function App() {
     // You can apply your background color to the main container
     <div className="bg-black text-white">
       <Navbar />
-      <main className="space-y-0">
+      <main>
         {/* Render each section component just once */}
         <About />
         <Skills />

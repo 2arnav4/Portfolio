@@ -2,22 +2,22 @@
 
 import React from "react";
 import { motion, useScroll, useTransform } from 'framer-motion';
+import resumePdf from '/src/assets/resume/Resume -Arnav .pdf'; // Import the resume file
 
 const About = () => {
   const { scrollYProgress } = useScroll();
   
-  // Transform scroll progress to opacity and position
+  // Transform scroll progress to opacity. Fades out as you scroll down.
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.2], [0, -100]);
-  const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.8]);
+  const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9]); // Adds a subtle shrink effect
 
   return (
     <motion.section 
       id="about" 
       className="min-h-screen flex items-center justify-center bg-black px-6 text-white py-4"
-      style={{ opacity, y, scale }}
+      style={{ opacity, scale }}
     >
-      <div className="text-center max-w-2xl">
+      <div className="text-center max-w-4xl">
         <div className="inline-flex items-center mb-6 px-4 py-1 border border-green-500 rounded-full">
           <span className="h-2 w-2 bg-green-500 rounded-full mr-2"></span>
           Available for Collaborations & Internships
@@ -45,7 +45,7 @@ const About = () => {
             🔍 Explore Projects
           </a>
           <a
-            href="/src/assets/resume/Resume -Arnav .pdf"
+            href={resumePdf} // Use the imported PDF path
             download="Resume - Arnav Singla.pdf"
             className="px-6 py-3 border-2 border-gray-600 text-gray-300 font-semibold rounded-md hover:border-blue-400 hover:text-blue-400 transition-all duration-300 flex items-center gap-2"
           >

@@ -4,16 +4,15 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 const Projects = () => {
   const { scrollYProgress } = useScroll();
   
-  // Transform scroll progress to opacity and position (like About and Skills)
-  const opacity = useTransform(scrollYProgress, [0.25, 0.45], [0, 1]);
-  const y = useTransform(scrollYProgress, [0.25, 0.45], [100, 0]);
-  const scale = useTransform(scrollYProgress, [0.25, 0.45], [0.8, 1]);
+  // Fades in as the user scrolls into this section's view
+  const opacity = useTransform(scrollYProgress, [0.5, 0.7], [0, 1]);
+  const y = useTransform(scrollYProgress, [0.5, 0.7], [50, 0]); // Slides up slightly
 
   return (
     <motion.section 
       id="projects" 
-      className="min-h-screen flex items-center justify-center bg-black px-6 py-4"
-      style={{ opacity, y, scale }}
+      className="min-h-screen flex items-center justify-center bg-black px-6 text-white py-4"
+      style={{ opacity, y }}
     >
       <div className="max-w-4xl mx-auto">
         <div className="text-center">
